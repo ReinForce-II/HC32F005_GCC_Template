@@ -54,6 +54,7 @@ AS = $(BINPATH)/$(PREFIX)gcc.exe -x assembler-with-cpp
 CP = $(BINPATH)/$(PREFIX)objcopy.exe
 AR = $(BINPATH)/$(PREFIX)ar.exe
 SZ = $(BINPATH)/$(PREFIX)size.exe
+GDB = $(BINPATH)/$(PREFIX)gdb.exe
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
  
@@ -159,7 +160,20 @@ $(BUILD_DIR):
 #######################################
 clean:
 	-rm -fR .dep $(BUILD_DIR)
-  
+
+#######################################
+# debug
+#######################################
+debug: all
+	gdbgui -g $(GDB) \
+	--gdb-args "\
+	--symbol=$(BUILD_DIR)/$(TARGET).elf \
+	-ex 'target remote localhost:3333' \
+	-ex 'monitor program $(BUILD_DIR)/$(TARGET).elf' \
+	-ex 'monitor reset halt' \
+	-ex 'b main'\
+	"
+
 #######################################
 # dependencies
 #######################################
