@@ -10,7 +10,7 @@ TARGET = Template
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -O0
+OPT = -Og
 
 
 #######################################
@@ -72,8 +72,7 @@ MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 AS_DEFS = 
 
 # C defines
-C_DEFS =  \
--DUSE_STDPERIPH_DRIVER \
+C_DEFS = \
 -DHC32F005
 
 
@@ -107,7 +106,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"
 LDSCRIPT = hc32f005_flash.ld
 
 # libraries
-LIBS = -lc -lm -lnosys -specs=nano.specs -u _printf_float
+LIBS = -lc -lm -lnosys -specs=nano.specs
 LIBDIR = 
 LDFLAGS = $(MCU) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
