@@ -27,6 +27,12 @@ C_SOURCES =  \
 src/main.c \
 src/system_hc32f005.c
 
+# FreeRTOS sources
+C_SOURCES += \
+$(wildcard lib/FreeRTOS/*.c) \
+$(wildcard lib/FreeRTOS/portable/GCC/ARM_CM0/*.c) \
+$(wildcard lib/FreeRTOS/portable/MemMang/*.c)
+
 # ASM sources
 ASM_SOURCES =  \
 startup_hc32f005.s
@@ -83,6 +89,11 @@ AS_INCLUDES =
 C_INCLUDES =  \
 -Iinclude \
 -Ilib/CMSIS/Core/Include
+
+# FreeRTOS includes
+C_INCLUDES += \
+-Ilib/FreeRTOS/include \
+-Ilib/FreeRTOS/portable/GCC/ARM_CM0
 
 
 # compile gcc flags
