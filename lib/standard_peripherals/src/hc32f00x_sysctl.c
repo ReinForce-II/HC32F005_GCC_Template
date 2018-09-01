@@ -36,6 +36,8 @@ void sysctl_rch_disable() {
     M0P_CLOCK->SYSCTRL0_f.RCH_EN = 0;
 }
 
+bool sysctl_rch_stable() { return M0P_CLOCK->RCH_CR_f.STABLE; }
+
 void sysctl_xth_config(enum XTH_STARTUP_CYCLE_NUM cy_num, enum XTH_FREQ freq,
                        enum XTH_DRIVER_STRENGTH str) {
     M0P_CLOCK->XTH_CR_f.STARTUP = cy_num;
@@ -56,6 +58,8 @@ void sysctl_xth_disable() {
     M0P_CLOCK->SYSCTRL1_f.EXTH_EN = 0;
 }
 
+bool sysctl_xth_stable() { return M0P_CLOCK->XTH_CR_f.STABLE; }
+
 void sysctl_rcl_config(enum RCL_STARTUP_CYCLE_NUM cy_num,
                        enum RCL_TRIM trim_val) {
     M0P_CLOCK->RCL_CR_f.STARTUP = cy_num;
@@ -71,6 +75,8 @@ void sysctl_rcl_disable() {
     sysctl_0_1_we();
     M0P_CLOCK->SYSCTRL0_f.RCL_EN = 0;
 }
+
+bool sysctl_rcl_stable() { return M0P_CLOCK->RCL_CR_f.STABLE; }
 
 void sysctl_xtl_config(enum XTL_STARTUP_CYCLE_NUM cy_num,
                        enum XTL_AMP_CTRL amp_cfg,
@@ -92,6 +98,8 @@ void sysctl_xtl_disable() {
     sysctl_0_1_we();
     M0P_CLOCK->SYSCTRL1_f.EXTL_EN = 0;
 }
+
+bool sysctl_xtl_stable() { return M0P_CLOCK->XTL_CR_f.STABLE; }
 
 void sysctl_system_clock_config(enum SYS_CLK_SRC src) {
     sysctl_0_1_we();

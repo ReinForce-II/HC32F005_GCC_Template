@@ -123,17 +123,21 @@ void sysctl_deinit();
 void sysctl_rch_config(enum RCH_TRIM);
 void sysctl_rch_enable();
 void sysctl_rch_disable();
+bool sysctl_rch_stable();
 void sysctl_xth_config(enum XTH_STARTUP_CYCLE_NUM, enum XTH_FREQ,
                        enum XTH_DRIVER_STRENGTH);
 void sysctl_xth_enable();
 void sysctl_xth_disable();
+bool sysctl_xth_stable();
 void sysctl_rcl_config(enum RCL_STARTUP_CYCLE_NUM, enum RCL_TRIM);
 void sysctl_rcl_enable();
 void sysctl_rcl_disable();
+bool sysctl_rcl_stable();
 void sysctl_xtl_config(enum XTL_STARTUP_CYCLE_NUM, enum XTL_AMP_CTRL,
                        enum XTL_DRIVER_STRENGTH);
 void sysctl_xtl_enable();
 void sysctl_xtl_disable();
+bool sysctl_xtl_stable();
 void sysctl_system_clock_config(enum SYS_CLK_SRC);
 void sysctl_hclk_config(enum HCLK_SRC);
 void sysctl_pclk_config(enum PCLK_SRC);
