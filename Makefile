@@ -33,6 +33,10 @@ $(wildcard lib/FreeRTOS/*.c) \
 $(wildcard lib/FreeRTOS/portable/GCC/ARM_CM0/*.c) \
 $(wildcard lib/FreeRTOS/portable/MemMang/*.c)
 
+# StdPeri sources
+C_SOURCES += \
+$(wildcard lib/standard_peripherals/src/*.c)
+
 # ASM sources
 ASM_SOURCES =  \
 startup_hc32f005.s
@@ -96,6 +100,9 @@ C_INCLUDES += \
 -Ilib/FreeRTOS/include \
 -Ilib/FreeRTOS/portable/GCC/ARM_CM0
 
+# StdPeri includes
+C_INCLUDES += \
+-Ilib/standard_peripherals/include
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
