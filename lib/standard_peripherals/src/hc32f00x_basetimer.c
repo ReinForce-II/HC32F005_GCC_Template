@@ -31,7 +31,7 @@ void basetimer_set_count_value_16(M0P_BT_TypeDef *timer, uint16_t val) {
     timer->CNT = val;
 }
 
-uint16_t basetimer_get_count_value_16(M0P_BT_TypeDef *timer, uint16_t val) {
+uint16_t basetimer_get_count_value_16(M0P_BT_TypeDef *timer) {
     return timer->CNT;
 }
 
@@ -39,7 +39,7 @@ void basetimer_set_count_value_32(M0P_BT_TypeDef *timer, uint32_t val) {
     timer->CNT32 = val;
 }
 
-uint32_t basetimer_get_count_value_32(M0P_BT_TypeDef *timer, uint32_t val) {
+uint32_t basetimer_get_count_value_32(M0P_BT_TypeDef *timer) {
     return timer->CNT32;
 }
 
