@@ -93,7 +93,6 @@ extern "C" {
 
 extern uint32_t SystemCoreClock;          // System Clock Frequency (Core Clock)
 extern void SystemInit (void);            // Initialize the system
-extern void SystemCoreClockUpdate (void); // Update SystemCoreClock variable
 
 #ifdef __cplusplus
 }
